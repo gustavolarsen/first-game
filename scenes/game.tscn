@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=4 uid="uid://c66f2tiagg1sr"]
+[gd_scene load_steps=19 format=4 uid="uid://c66f2tiagg1sr"]
 
 [ext_resource type="PackedScene" uid="uid://dqa01xdajdmpt" path="res://scenes/platform.tscn" id="1_lnu2h"]
 [ext_resource type="Script" uid="uid://bd0bxlq84buib" path="res://scripts/game_manager.gd" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://b3hjlgmu1lcvb" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="AudioStream" uid="uid://dauh6je1a1xtw" path="res://assets/sounds/coin.wav" id="2_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://dtdncmd6dus80" path="res://assets/sprites/world_tileset.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://4y0iag1d8ktc" path="res://scenes/coin.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://btvetxn3a0nfn" path="res://scenes/killzone.tscn" id="5_iywne"]
@@ -358,6 +359,10 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 script = ExtResource("1_u5sy4")
 
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="GameManager"]
+stream = ExtResource("2_0tnpc")
+bus = &"Sfx"
+
 [node name="Tiles" type="Node" parent="."]
 
 [node name="Background" type="TileMapLayer" parent="Tiles"]
@@ -370,7 +375,7 @@ tile_map_data = PackedByteArray("AAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAIAAAAAAAA
 tile_set = SubResource("TileSet_lbhrr")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
-position = Vector2(522, 77)
+position = Vector2(48, 77)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(1, -7)
@@ -391,7 +396,7 @@ metadata/_edit_lock_ = true
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource("1_lnu2h")]
-position = Vector2(60, 40)
+position = Vector2(48, 40)
 
 [node name="Platform2" parent="Platforms" instance=ExtResource("1_lnu2h")]
 position = Vector2(387, 81)
